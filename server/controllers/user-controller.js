@@ -10,9 +10,9 @@ exports.signUp = async (req, res, next) => {
         phone:req.body.phone,
         password: hash,
       });
-      res.status(201).json({ message: "User Created Successfully" });
+      res.status(201).json({ message: "Successfully Signed Up" });
     });
   } catch (error) {
-    res.status(400).json({ error: "User Already Exists" });
+    res.status(400).json({ message: "User Already Exists" });
   }
 };

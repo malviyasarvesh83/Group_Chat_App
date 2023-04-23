@@ -53,15 +53,17 @@ const signUp = async () => {
                 phone: phone,
                 password: password,
             });
+            console.log(response.data);
             document.getElementById("signUpname").value = '';
             document.getElementById("signUpemail").value = '';
             document.getElementById("signUpphone").value = '';
             document.getElementById("signUppassword").value = '';
             alert(response.data.message);
+            location.href = 'login.html';
         }
     } catch (error) {
         console.log('My Error=',error);
-        console.log(error.response.data.error);
+        alert(error.response.data.error);
         document.getElementById("signUpname").value = "";
         document.getElementById("signUpemail").value = "";
         document.getElementById("signUpphone").value = "";
