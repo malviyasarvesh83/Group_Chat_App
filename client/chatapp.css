@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-left: 400px;
+    margin-top: 30px;
+    border: 1px solid gray;
+    width: 600px;
+    height: 610px;
+    padding-left: 50px;
+}
+
+.message {
+    margin-top: 20px;
+}
+
+.message-list {
+    border: 1px solid gray;
+    width: 500px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.send {
+    margin-top: 290px;
+    border: 1px solid gray;
+    margin-right: 30px;
+    height: 40px;
+}
+
+.send input {
+    width: 460px;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+}
+
+.send button {
+    height: 100%;
+    width: 52px;
+}
