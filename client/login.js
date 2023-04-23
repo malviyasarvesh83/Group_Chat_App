@@ -33,7 +33,7 @@ const login = async () => {
           let email = document.getElementById("email").value;
           let password = document.getElementById("password").value;
 
-          let response = await axios.post("http://localhost:8000/user/login", {
+          let response = await axios.post("http://localhost:4000/user/login", {
             email: email,
             password: password,
           });
