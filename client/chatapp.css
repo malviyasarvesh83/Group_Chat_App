@@ -11,6 +11,7 @@
     width: 600px;
     height: 610px;
     padding-left: 50px;
+    overflow-y: auto;
 }
 
 .message {
@@ -27,7 +28,7 @@
 .send {
     margin-top: 290px;
     border: 1px solid gray;
-    margin-right: 30px;
+    /* margin-right: 30px; */
     height: 40px;
 }
 
@@ -42,4 +43,5 @@
 .send button {
     height: 100%;
     width: 52px;
+    margin-left: 13px;
 }

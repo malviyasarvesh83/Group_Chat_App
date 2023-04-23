@@ -16,8 +16,8 @@ exports.postMessage = async (req, res) => {
 
 exports.getMessages = async (req, res) => {
     try {
-        const response = await Message.findAll({where:{userId:req.user.id}});
-        res.status(200).json(response);
+        const response = await Message.findAll();
+        res.status(200).json({response, name:req.user.name });
     } catch (error) {
         res.status(400).json({ error: 'Error while calling Get Message Api' });
     }

@@ -29,11 +29,10 @@ const getMessages = async () => {
     try {
         const token = localStorage.getItem('token');
         let response = await axios.get('http://localhost:4000/message/getMessage', { headers: { 'Authorization':token } } );
-        console.log(response);
-        for (let i = 0; i < response.data.length; i++){
+        for (let i = 0; i < response.data.response.length; i++){
             document.querySelector(".message").innerHTML += `
                 <div class="message-list">
-                    <p>${response.data[i].message}</p>
+                    <p>${response.data.response[i].message}</p>
                 </div>
             `;
         }
