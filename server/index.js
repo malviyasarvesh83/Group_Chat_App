@@ -5,6 +5,9 @@ const cors = require('cors');
 const dotenv = require('dotenv').config();
 const sequelize = require('./utils/database');
 const userRoutes = require('./routes/userRoutes');
+const messageRoutes = require('./routes/messageRoutes');
+const Message = require('./models/message');
+const User = require('./models/user');
 
 const port = process.env.PORT;
 
@@ -28,6 +31,13 @@ const database = async () => {
     }
 }
 
+// Relation Between User And Message
+
+User.hasMany(Message);
+Message.belongsTo(User);
+
+
 // Routes
 
 app.use('/user', userRoutes);
+app.use('/message', messageRoutes);
