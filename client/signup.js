@@ -41,7 +41,6 @@ const validateForm = () => {
 
 const signUp = async () => {
     try {
-        const token = localStorage.getItem('token');
         if (validateForm() == true) {
             let name = document.getElementById("signUpname").value;
             let email = document.getElementById("signUpemail").value;
@@ -53,10 +52,19 @@ const signUp = async () => {
                 email: email,
                 phone: phone,
                 password: password,
-            }, { headers: { 'Authorization': token } });
-            alert(response.data.success);
+            });
+            document.getElementById("signUpname").value = '';
+            document.getElementById("signUpemail").value = '';
+            document.getElementById("signUpphone").value = '';
+            document.getElementById("signUppassword").value = '';
+            alert(response.data.message);
         }
     } catch (error) {
-        console.log(error);
+        console.log('My Error=',error);
+        console.log(error.response.data.error);
+        document.getElementById("signUpname").value = "";
+        document.getElementById("signUpemail").value = "";
+        document.getElementById("signUpphone").value = "";
+        document.getElementById("signUppassword").value = "";
     }
 }
