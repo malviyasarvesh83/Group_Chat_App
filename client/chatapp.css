@@ -6,7 +6,6 @@
 
 .container {
     margin-left: 400px;
-    margin-top: 30px;
     border: 1px solid gray;
     width: 600px;
     height: 610px;
@@ -21,27 +20,35 @@
 .message-list {
     border: 1px solid gray;
     width: 500px;
-    height: 30px;
+    height: 50px;
     margin-top: 10px;
+    overflow-y: auto;
+}
+
+.message-list p i {
+    cursor: pointer;
 }
 
 .send {
-    margin-top: 290px;
+    margin-top: 5px;
+    margin-left: 400px;
     border: 1px solid gray;
-    /* margin-right: 30px; */
+    width: 600px;
     height: 40px;
 }
 
 .send input {
-    width: 460px;
+    width: 550px;
     height: 100%;
     border: none;
     outline: none;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .send button {
+    width: 43px;
     height: 100%;
-    width: 52px;
-    margin-left: 13px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }

@@ -27,15 +27,18 @@ const sendMessage = async () => {
 
 const getMessages = async () => {
     try {
+        let messages = [];
+        let html = '';
         const token = localStorage.getItem('token');
         let response = await axios.get('http://localhost:4000/message/getMessage', { headers: { 'Authorization':token } } );
         for (let i = 0; i < response.data.response.length; i++){
-            document.querySelector(".message").innerHTML = `
-                <div class="message-list">
-                    <p>${response.data.response[i].name} - ${response.data.response[i].message}</p>
-                </div>
-            `;
+            messages.push(response.data.response[i].message);
+            html += '<div class="message-list">';
+            html += `<p>${response.data.response[i].name} - ${response.data.response[i].message} <i class="fas fa-trash" onclick="deleteMessage(${response.data.response[i].id})"></i> </p>`;
+            html += '</div>';
         }
+        localStorage.setItem('messages', JSON.stringify(messages));
+        document.querySelector('.message').innerHTML = html;
     } catch (error) {
         console.log(error);
     }
@@ -44,3 +47,16 @@ const getMessages = async () => {
 document.onload = getMessages();
 
 setInterval(() => getMessages(), 1000);
+
+const deleteMessage = async (id) => {
+    try {
+        const token = localStorage.getItem("token");
+        let response = await axios.delete(
+          `http://localhost:4000/message/deleteMessage/${id}`,
+          { headers: { Authorization: token } }
+        );
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+    }
+}

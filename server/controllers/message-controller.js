@@ -24,3 +24,14 @@ exports.getMessages = async (req, res) => {
         res.status(400).json({ error: 'Error while calling Get Message Api' });
     }
 }
+
+exports.deleteMessages = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const response = await Message.findByPk(id);
+        await response.destroy();
+        res.status(200).json({ message: 'Message Deleted Successfully' });
+    } catch (error) {
+        res.status(400).json({ error: 'Error while calling Delete Message Api' });
+    }
+}
