@@ -41,6 +41,7 @@ const login = async () => {
           document.getElementById("email").value = "";
           document.getElementById("password").value = "";
           alert(response.data.message);
+          localStorage.setItem('join', response.data.join);
           localStorage.setItem("token", response.data.token);
           location.href = 'chatApp.html';
         }

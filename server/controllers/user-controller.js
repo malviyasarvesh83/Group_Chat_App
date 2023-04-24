@@ -36,6 +36,7 @@ exports.login = async (req, res, next) => {
           .json({
             message: "Logged In Successfully..!",
             token: generateAccessToken(users.id, users.name),
+            join: `${users.name} has Joined`
           });
       } else {
         res.status(400).json({ error: "Invalid Email or Password" });
