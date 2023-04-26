@@ -51,4 +51,14 @@
     border: none;
     outline: none;
     cursor: pointer;
+    border-left: 1px solid black;
+}
+
+.main-container {
+    display: flex;
+}
+
+.main-container .left-container {
+    margin-top: 80px;
+    margin-left: 40px;
 }

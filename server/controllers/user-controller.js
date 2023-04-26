@@ -46,3 +46,12 @@ exports.login = async (req, res, next) => {
     res.status(404).json({ error: "User Not Found" });
   }
 };
+
+exports.getAllUser = async (req, res) => {
+  try {
+    const response = await User.findAll();
+    res.status(200).json({response,name:req.user.name});
+  } catch (error) {
+    res.status(400).json({ error: 'Error while calling Get User Api' });
+  }
+}

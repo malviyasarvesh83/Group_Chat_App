@@ -60,3 +60,31 @@ const deleteMessage = async (id) => {
         console.log(error);
     }
 }
+
+// Create Group
+
+const createGroup = async () => {
+    try {
+        location.href = 'createGroup.html';
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// Get Group
+
+const getGroups = async () => {
+    try {
+        let response = await axios.get('http://localhost:4000/group/getGroups');
+        console.log(response);
+        for (let i = 0; i < response.data.length; i++){
+            document.querySelector('.group-list').innerHTML += `
+                <p>${response.data[i].groupName}</p>
+            `;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+} 
+
+getGroups();
